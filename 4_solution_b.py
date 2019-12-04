@@ -18,6 +18,8 @@ for i in range(MIN, MAX):
 		continue
 
 	if (digits[1] == digits[2] == digits[3]):
+		if (digits[4] == digits[5] == digits[6]):
+			continue
 		if (digits[4] != digits[5]) and (digits[5] != digits[6]):
 			continue
 		if (digits[3] == digits[4]): 
