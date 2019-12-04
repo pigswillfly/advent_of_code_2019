@@ -64,5 +64,6 @@ man_dist = []
 steps_taken = []
 for coord in set(first_coords).intersection(second_coords):
 	man_dist.append(abs(coord[0]) + abs(coord[1]))
+	steps_taken.append(first_coords.index(coord)+1 + second_coords.index(coord)+1)
 
-print(min(man_dist))
+print(min(steps_taken))
