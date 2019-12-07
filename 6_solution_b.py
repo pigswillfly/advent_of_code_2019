@@ -16,13 +16,33 @@ for line in lines:
     # root planet will not be listed in planet.keys()
     planets[orbiting_planet] = planet
 
-for child, parent in planets.items():
-    indirect_orbits += 1
+san_path = []
+current_planet = "SAN"
+while current_planet in planets.keys():
+    san_path.append(current_planet)
+    current_planet = planets.get(current_planet)
+san_path.append(current_planet)
 
-    while parent in planets.keys():
-        indirect_orbits += 1
-        parent = planets.get(parent)
+you_path = []
+current_planet = "YOU"
+while current_planet in planets.keys():
+    you_path.append(current_planet)
+    current_planet = planets.get(current_planet)
+you_path.append(current_planet)
 
-print(indirect_orbits)
+jumps = {}
+for planet in set(you_path).intersection(san_path):
+    jumps[planet] = you_path.index(planet) + san_path.index(planet) - 2
+
+print(min(jumps.values()))
+
+
+
+
+
+
+
+
+
 
 
